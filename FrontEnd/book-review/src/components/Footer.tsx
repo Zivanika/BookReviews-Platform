@@ -1,4 +1,3 @@
-import React from 'react';
 import { BookOpen, Mail, Github as GitHub, Twitter, Heart, Scroll, Feather } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
