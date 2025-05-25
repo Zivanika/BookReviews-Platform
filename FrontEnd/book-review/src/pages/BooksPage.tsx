@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   Filter,
   Search,
@@ -26,56 +26,56 @@ const genres = [
 ];
 
 // Mock book data for demonstration
-const mockBooks = [
-  {
-    _id: "1",
-    title: "The Great Adventure",
-    author: "John Smith",
-    genre: "Fiction",
-    cover: "https://picsum.photos/200/300?random=1",
-    rating: 4.5,
-  },
-  {
-    _id: "2",
-    title: "Mystery of the Ancient Castle",
-    author: "Jane Doe",
-    genre: "Mystery",
-    cover: "https://picsum.photos/200/300?random=2",
-    rating: 4.2,
-  },
-  {
-    _id: "3",
-    title: "Space Odyssey",
-    author: "Mike Johnson",
-    genre: "Sci-Fi",
-    cover: "https://picsum.photos/200/300?random=3",
-    rating: 4.8,
-  },
-  {
-    _id: "4",
-    title: "Dragon's Tale",
-    author: "Sarah Wilson",
-    genre: "Fantasy",
-    cover: "https://picsum.photos/200/300?random=4",
-    rating: 4.6,
-  },
-  {
-    _id: "5",
-    title: "Love in Paris",
-    author: "Emily Brown",
-    genre: "Romance",
-    cover: "https://picsum.photos/200/300?random=5",
-    rating: 4.3,
-  },
-  {
-    _id: "6",
-    title: "The Thriller Night",
-    author: "David Lee",
-    genre: "Thriller",
-    cover: "https://picsum.photos/200/300?random=6",
-    rating: 4.7,
-  },
-];
+// const mockBooks = [
+//   {
+//     _id: "1",
+//     title: "The Great Adventure",
+//     author: "John Smith",
+//     genre: "Fiction",
+//     cover: "https://picsum.photos/200/300?random=1",
+//     rating: 4.5,
+//   },
+//   {
+//     _id: "2",
+//     title: "Mystery of the Ancient Castle",
+//     author: "Jane Doe",
+//     genre: "Mystery",
+//     cover: "https://picsum.photos/200/300?random=2",
+//     rating: 4.2,
+//   },
+//   {
+//     _id: "3",
+//     title: "Space Odyssey",
+//     author: "Mike Johnson",
+//     genre: "Sci-Fi",
+//     cover: "https://picsum.photos/200/300?random=3",
+//     rating: 4.8,
+//   },
+//   {
+//     _id: "4",
+//     title: "Dragon's Tale",
+//     author: "Sarah Wilson",
+//     genre: "Fantasy",
+//     cover: "https://picsum.photos/200/300?random=4",
+//     rating: 4.6,
+//   },
+//   {
+//     _id: "5",
+//     title: "Love in Paris",
+//     author: "Emily Brown",
+//     genre: "Romance",
+//     cover: "https://picsum.photos/200/300?random=5",
+//     rating: 4.3,
+//   },
+//   {
+//     _id: "6",
+//     title: "The Thriller Night",
+//     author: "David Lee",
+//     genre: "Thriller",
+//     cover: "https://picsum.photos/200/300?random=6",
+//     rating: 4.7,
+//   },
+// ];
 
 const BookCard = ({ book }: any) => (
   <Link to={`/books/${book._id}`} className="group">
@@ -133,6 +133,8 @@ const VintageWoodBooksPage = () => {
     if (selectedGenre !== "All") params.genre = selectedGenre;
     if (currentPage > 1) params.page = currentPage.toString();
     setSearchParams(params);
+    console.log("searchParam:",searchParams);
+    
   }, [searchTerm, selectedGenre, currentPage]);
 
   const handleSearch = (e: any) => {

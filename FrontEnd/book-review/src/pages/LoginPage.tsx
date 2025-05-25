@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { LogIn, Eye, EyeOff } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import {  Eye, EyeOff } from "lucide-react";
 
 import AuthContext from "../context/AuthContext";
 
@@ -37,7 +37,8 @@ const LoginPage: React.FC = () => {
     }
   };
 
-  const handleSocialLogin = async (provider: string) => {};
+  const handleSocialLogin = async (provider: string) => {console.log("provider:",provider);
+  };
   
   return (
     <div

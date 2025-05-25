@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff } from 'lucide-react';
 import AuthContext from '../context/AuthContext';
 
@@ -44,10 +44,6 @@ const RegisterPage: React.FC = () => {
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const handleSocialSignup = (provider:any) => {
-    console.log(`Sign up with ${provider}`);
   };
 
   return (

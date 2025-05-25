@@ -7,8 +7,6 @@ import {
   Star,
   Edit3,
   LogOut,
-  Eye,
-  EyeOff,
 } from "lucide-react";
 
 import AuthContext from "../context/AuthContext";
@@ -18,18 +16,11 @@ const ProfilePage: React.FC = () => {
   const { user, updateProfile, logout } = useContext(AuthContext);
   const { addBook } = useContext(BookContext);
   const [name, setName] = useState<string>(user?.name || "");
-  const [email, setEmail] = useState<string>(user?.email || "");
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [showAddBook, setShowAddBook] = useState(false);
-  const [currentPassword, setCurrentPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
-  const [showNewPassword, setShowNewPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
@@ -96,33 +87,6 @@ const ProfilePage: React.FC = () => {
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const handlePasswordChange = async (e: any) => {
-    e.preventDefault();
-    setError("");
-
-    if (newPassword !== confirmPassword) {
-      setError("New passwords do not match");
-      return;
-    }
-
-    if (newPassword.length < 8) {
-      setError("Password must be at least 8 characters long");
-      return;
-    }
-
-    setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      setSuccessMessage("Password changed successfully!");
-      setShowAddBook(false);
-      setCurrentPassword("");
-      setNewPassword("");
-      setConfirmPassword("");
-      setIsSubmitting(false);
-      setTimeout(() => setSuccessMessage(""), 3000);
-    }, 1000);
   };
 
   if (!user) {
@@ -266,7 +230,7 @@ const ProfilePage: React.FC = () => {
                     <input
                       type="email"
                       id="email"
-                      value={email}
+                      value={user.email}
                       disabled
                       className="w-full px-4 py-3 rounded-lg text-amber-700 cursor-not-allowed opacity-70"
                       style={{

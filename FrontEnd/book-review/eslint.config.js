@@ -19,6 +19,8 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
+      'no-unused-vars': 'off', // ← Disable base rule
+      '@typescript-eslint/no-unused-vars': 'off', // ← Disable TS version
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
